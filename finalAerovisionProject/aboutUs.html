@@ -1,0 +1,95 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aerovision</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <script src="static/js/index.js"></script>
+</head>
+
+<body>
+    <div class="main">
+        <div class="header">
+            <nav>
+                <div class="logo">
+                    <a href="{{ url_for('index') }}"><img src="{{ url_for('static', filename='images/icon.png') }}" alt="Logo"></a>
+                </div>
+                <div class="menu">
+                    <ul>
+                        <li><a href="{{ url_for('index') }}">Home</a></li>
+                        <li><a href="{{ url_for('dashboard') }}">Dashboard</a></li>
+                        <li class="abtUsDropdown">
+                            <a href="#" class="dropbtn">About Us ↓</a>
+                            <div class="dropdown-content">
+                                <a href="#mission">Mission</a>
+                                <a href="{{ url_for('aboutUs') }}">Our Team</a>
+                                <a href="{{ url_for('index') }}">Contact</a>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+
+        <div class="landingMainAbt"> 
+            <div class="groupPhotos">
+                <!-- Member 1 -->
+                <div class="member">
+                    <h2>Sanjeev Subramanian</h2>
+                    <div class="member-content">
+                        <img src="{{ url_for('static', filename='images/sanjeevSubramanian.jpg') }}" alt="Sanjeev Subramanian" class="member-img">
+                        <p>Member 1 short description. This could be their role, expertise, or a fun fact about them.</p>
+                        <hr>
+                    </div>
+                </div>
+            
+                <!-- Member 2 -->
+                <div class="member">
+                    <h2>Nivaan Kaushal</h2>
+                    <div class="member-content">
+                        <img src="{{ url_for('static', filename='images/nivaanKashaul.jpg') }}" alt="Nivaan Kaushal" class="member-img">
+                        <p>Member 2 short description. This could be their role, expertise, or a fun fact about them.</p>
+                    </div>
+                </div>
+            
+                <!-- Member 3 -->
+                <div class="member">
+                    <h2>Pratham Singh</h2>
+                    <div class="member-content">
+                        <img src="path_to_picture_3.jpg" alt="Pratham Singh" class="member-img">
+                        <p>Pratham Singh worked on the video for Aerovision as well as clearing out the business stuff.</p>
+                    </div>
+                </div>
+            
+                <!-- Member 4 -->
+                <div class="member">
+                    <h2>Joseph George</h2>
+                    <div class="member-content">
+                        <img src="{{ url_for('static', filename='images/josephGeorge.jpg') }}" alt="Joseph George" class="member-img">
+                        <p>Joseph George was a backend developer and worked on the LSTM.</p>
+                    </div>
+                </div>
+            
+                <!-- Member 5 -->
+                <div class="member">
+                    <h2>Fabeun Rahman</h2>
+                    <div class="member-content">
+                        <img src="{{ url_for('static', filename='images/fabeunRahman.jpg') }}" alt="Fabeun Rahman" class="member-img">
+                        <p>Fabeun Rahman was the frontend developer of Aerovision and developed the website. He also focused on outreach and getting professional feedback from professors and others in the field.</p>
+                    </div>
+                </div>
+            </div>
+              
+        
+        </div>
+    </div>
+
+
+
+</body>
+
+</html>
