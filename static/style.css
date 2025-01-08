@@ -1,0 +1,743 @@
+/* General Styles */
+* {
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+}
+html {
+    scroll-behavior: smooth;
+}
+.main {
+    width: 100%;
+    min-height: 100vh;
+    position: relative;
+    overflow: hidden;
+    background: #F3F3F3;
+    text-align: center;
+}
+
+.groupPhotos {
+
+    display: flex;
+    flex-wrap: wrap; /* Allow wrapping for responsiveness */
+    gap: 20px; /* Add space between each member */
+}
+
+.member {
+    
+    display: flex;
+    flex-direction: column; /* Stack name and image-description section */
+    align-items: flex-start; /* Align content to the left */
+}
+
+.member h2 {
+    margin-bottom: 40px; /* Add space between name and image */
+}
+
+.member-content {
+    display: flex;
+    align-items: center; /* Vertically align image and text */
+}
+
+.member-img {
+    width: 300px; /* Set a fixed width for each member's container */
+
+    height: auto; /* Maintain aspect ratio */
+}
+
+.member p {
+    flex-grow: 1; /* Allow text to take up remaining space */
+    margin-left: 15%;
+    margin-right: 10%;
+}
+
+.landingMain {
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+    background: #F3F3F3;
+    text-align: left;
+    margin-top: 5%;
+    padding-left: 5%;
+    box-sizing: border-box; /* Ensures padding is included within element's dimensions */
+
+}
+.landingMainAbt {
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+    background: #F3F3F3;
+    text-align: left;
+    margin-left: 5%;
+    margin-top: 5%;
+    margin-bottom: 5%;
+}
+
+
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0; /* Start with 0 opacity */
+    }
+    100% {
+        opacity: 1; /* End with full opacity */
+    }
+}
+
+.landingMain h2 {
+    margin-top: 10rem;
+    font-size: 3rem;
+    margin-bottom: 5rem;
+    color: #2559B1;
+    text-align: left;
+    opacity: 0;
+    max-width: 50%;
+    animation: fadeIn 1.5s ease-in-out forwards;
+}
+/* section:target .landingMain h2 {
+    opacity: 1;
+    transform: translateX(0);
+} */
+.member  {
+    margin-top: 5rem;
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+    color: #203640;
+    text-align: left;
+    opacity: 0;
+    animation: fadeIn 1.0s ease-in-out forwards;
+}
+
+.landingMain p {
+    margin-bottom: 5rem;
+    color: #203640;
+    line-height: 1.6;
+    text-align: left;
+    max-width: 800px;
+    max-width: 45%;
+    opacity: 0;
+    animation: fadeIn 1.5s ease-in-out forwards;
+    animation-delay: 0.3s;
+}
+
+.landingMain .button {
+    display: inline-block;
+    margin-top: 10px;
+    margin-right: 10px;
+    padding: 1rem 2rem;
+    background-color: #203640;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+    font-size: 1.5rem;
+    opacity: 0;
+    animation: fadeIn 1.5s ease-in-out forwards;
+    animation-delay: 0.6s;
+}
+
+.landingMain .button:hover {
+    background-color: #2559B1;
+}
+
+.banner {
+    width: 100%;
+    height: 10vh;
+    position: relative;
+    overflow: hidden;
+    background: #203640;
+}
+
+.header {
+    width: 100%;
+    height: 80px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #F3F3F3;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out;
+
+}
+
+nav {
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.logo img {
+    width: 120px;
+    margin-left: 40px;
+}
+
+/* About Us Dropdown */
+.abtUsDropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.abtUsDropdown .dropbtn {
+    color: #203640;
+    font-size: 16px;
+    text-decoration: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+}
+
+.dropdown-content {
+    display: block; /* Keep the dropdown block-level but initially hidden */
+    opacity: 0; /* Make dropdown initially invisible */
+    visibility: hidden; /* Make it not interactable */
+    position: absolute;
+    background-color: #F3F3F3;
+    min-width: 160px;
+    z-index: 1;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+    transform: translateY(-10px); /* Slide effect */
+    transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s;
+}
+
+.dropdown-content a {
+    color: #333;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    opacity: 0; /* Start hidden */
+    transform: translateY(-10px); /* Start from above */
+    animation: dropdownFadeIn 0.3s forwards;
+}
+
+.dropdown-content a:hover {
+    background-color: #ddd;
+}
+
+/* Display dropdown when hovering */
+.abtUsDropdown:hover .dropdown-content {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.dropdown-content a:nth-child(1) {
+    animation-delay: 0.1s;
+}
+
+.dropdown-content a:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.dropdown-content a:nth-child(3) {
+    animation-delay: 0.3s;
+}
+
+.dropdown-content a:nth-child(4) {
+    animation-delay: 0.4s;
+}
+@keyframes dropdownFadeIn {
+    to {
+        opacity: 1; /* Make it visible */
+        transform: translateY(0); /* Move it into place */
+    }
+}
+
+.dropdown-content a:hover {
+    background-color: #ddd;
+}
+.menu {
+    display: flex;
+    align-items: center;
+    margin-left: 65%;
+}
+
+.menu ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 20px;
+}
+
+.menu ul li {
+    display: inline-block;
+}
+
+.menu ul li a {
+    color: #203640;
+    text-decoration: none;
+    font-size: 16px;
+    transition: color 0.3s;
+}
+
+.menu ul li a:hover {
+    color: #2559B1;
+}
+
+
+.dashboard{
+    margin: 0px;
+    margin-top: 100px;
+    flex: 1;
+    text-align: center;
+}
+.dashboard h1{
+    /* position: static; */
+    color: #203640;
+    text-align: center;
+    margin-bottom: 40px;
+}
+.dashboard img{
+    width: 100px;
+}
+.dashboard ul li{
+    list-style: none;
+    display: inline-block;
+    margin-bottom: 35px;
+    margin-right: 40px;
+    transform: translateX(30px);
+    text-align: center;
+}
+.dashboard ul li a{
+    color: #203640;
+    text-decoration: none;
+}
+.dashboard p{
+    margin-top: 5px;
+}
+
+
+/* Mission List container */
+#missionList {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 4 items per row */
+    gap: 10px; /* Adds space between items */
+    padding-right: 80px;
+    list-style: none;
+    max-width: 1800px; /* Optional: Limits the maximum width */
+    justify-content: center; /* Centers the grid */
+}
+
+/* Individual mission item */
+.missionItem {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    background-color: #2559B1; /* Optional: Adds a light background */
+    padding: 20px;
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+
+/* Mission image */
+.missionImage {
+    width: 80px; /* Ensures consistent size for icons */
+    height: auto;
+    margin-bottom: 15px;
+}
+
+/* Mission strong (heading) */
+.missionItem strong {
+    font-size: 1.2em;
+    color: #fff;
+
+    margin-bottom: 10px;
+}
+
+/* Mission paragraph */
+.missionItem p {
+    margin: 0;
+    padding: 0;
+    color: #fff;
+    text-align: center;
+    line-height: 1.6;
+    max-width: 280px; /* Optional: Prevents overly wide text blocks */
+    word-wrap: break-word;
+}
+
+
+
+
+
+
+strong {
+    display: block; /* Make the heading block-level */
+    margin-bottom: 5px; /* Space between the heading and the paragraph */
+}
+
+
+
+
+
+
+.feature img{
+    width: 70px;
+}
+.feature{
+    position: absolute;
+    display: flex;
+    color: #203640;
+}
+.feature div{
+    margin-left: 30px;
+}
+.feature div p{
+    margin-top: 8px;
+}
+.one{
+    top: 450px;
+    right: 50px;
+    transform: rotate(0deg);
+}
+.two {
+    top: 150px;
+    left: 350px;
+    transform: rotate(-90deg);
+}
+.three{
+    bottom: 450px;
+    left: 50px;
+    transform: rotate(-180deg);
+}
+.four{
+    bottom: 150px;
+    right: 350px;
+    transform: rotate(-270deg);
+}
+
+.controls{
+    position: absolute;
+    right: 7%;
+    top: 53.5%;
+    transform: translateY(-50%);
+    text-align: center;
+}
+.controls h3{
+    margin: 15px 0;
+    color: white;
+}
+#upbtn{
+    width: 15px;
+    cursor: pointer;
+}
+#dwnbtn{
+    width: 15px;
+    cursor: pointer;
+    transform: rotate(180deg);
+}
+
+.overlay{
+    width: 0;
+    height: 0;
+    border-top: 500px solid #203640;
+    border-right: 500px solid transparent;
+    border-bottom: 500px solid #203640;
+    border-left: 500px solid #203640;;
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 2;
+}
+
+.progress {
+    height: 7px;
+    margin-top: 10px;
+    background-color: lightgray;
+    border-radius: 20%;
+}
+
+.fill {
+    height: 7px;
+    border-radius:20%;
+    background-color: #2559B1;
+}
+
+.categories img{
+    width: 80px;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 90vh;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 90vh;
+}
+
+.sign-in {
+    max-width: 400px;
+    width: 100%;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+    text-align: center; 
+}
+
+.sign-in h1 {
+    margin-bottom: 20px;
+    color: #203640;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-control {
+    width: calc(100% - 16px);
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+}
+
+.btn {
+    width: calc(100% - 16px); 
+    padding: 10px;
+    border: none;
+    border-radius: 3px;
+    background-color: #007bff;
+    color: #fff;
+    cursor: pointer;
+}
+
+.btn:hover {
+    background-color: #0056b3;
+}
+
+p {
+    margin-top: 15px;
+}
+
+a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+.nameField {
+    display: none;
+}
+.confirmPasswordField {
+    display: none;
+}
+
+
+
+
+/* Carousel code below  */
+.carousel {
+    position: relative;
+    max-width: 600px; /* Adjust as needed */
+    margin: auto;
+    overflow: hidden;
+}
+
+.carousel-images {
+    display: flex;
+    transition: transform 0.5s ease;
+    width: 100%; /* Make sure the carousel images container is 100% width */
+}
+
+.carousel-images img {
+    width: 100%; /* Ensure each image fits within the container */
+    height: auto;
+}
+
+.carousel-button {
+    position: absolute;
+    top: 50%;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    z-index: 10; /* Increase z-index to ensure it’s clickable */
+    font-size: 24px;
+    transform: translateY(-50%);
+}
+
+.prev {
+    left: 0;
+}
+
+.next {
+    right: 0;
+}
+
+
+.about-container {
+    display: flex;
+    align-items: right; /* Center-align the text and slideshow */
+    gap: 20px; /* Add spacing between the h2 and the slideshow */
+    text-align: center; /* Center text inside the container */
+}
+
+h2 {
+    font-size: 24px;
+    margin: 0; /* Remove default margin for cleaner spacing */
+}
+
+.slideshow-container {
+    max-width: 300px;
+}
+
+/* Style for the h2 tag */
+.underline-effect {
+    display: inline-block;
+    position: relative;
+    opacity: 1;
+    animation: fadeIn 2s ease-out; /* Fade-in effect */
+}
+
+/* The underline effect */
+.underline-effect::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px; /* Thickness of the underline */
+    background-color: #000; /* Color of the underline */
+    transform: scaleX(0); /* Start with no visible underline */
+    transform-origin: bottom right; /* Start the scaling from the right */
+    transition: transform 1s ease-out; /* Animation for the underline expansion */
+}
+
+/* Define the fade-in animation */
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+/* Underline appears when the element has been hovered */
+.underline-effect:hover::after {
+    transform: scaleX(1); /* Scale the underline to full width */
+}
+
+
+
+
+/* Reset styling for list and remove default bullet points */
+.menu ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex; /* Use flexbox to align items horizontally */
+}
+
+/* Style for each menu item */
+.menu li {
+    margin-right: 20px; /* Space between items */
+}
+
+/* Style for the links in the menu */
+.menu a {
+    position: relative;
+    /* display: inline-block; */
+    padding-bottom: 5px; /* Space for the underline */
+    color: inherit; /* Inherit text color */
+    text-decoration: none; /* Remove default underline */
+    opacity: 1;
+    animation: fadeIn 2s ease-out; /* Fade-in effect on page load */
+}
+
+/* Underline effect */
+.menu a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 0; /* Start with no visible underline */
+    background-color: #000; /* Color of the underline */
+    transform-origin: top center; /* Set origin to top for fade-in effect */
+    transition: height 0.3s ease, opacity 0.3s ease; /* Smooth transition for height and opacity */
+    opacity: 0; /* Start with invisible underline */
+}
+
+/* Define the fade-in animation */
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+/* Underline appears on hover */
+.menu a:hover::after {
+    height: 2px; /* Height of the underline */
+    opacity: 1; /* Make the underline visible */
+}
+
+/* Dropdown styling for the About Us menu */
+.abtUsDropdown {
+    position: relative;
+}
+
+/* Styling for dropdown content */
+.abtUsDropdown .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: white;
+    min-width: 160px; /* Minimum width of the dropdown */
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2); /* Add shadow to dropdown */
+    z-index: 1;
+}
+
+/* Show the dropdown when hovering over the "About Us" link */
+.abtUsDropdown:hover .dropdown-content {
+    display: block;
+}
+
+/* Underline effect on dropdown items */
+.abtUsDropdown .dropdown-content a {
+    position: relative;
+    display: inline-block;
+    padding-bottom: 5px; /* Space for the underline */
+    color: inherit; /* Inherit text color */
+    text-decoration: none;
+}
+
+/* Underline effect for dropdown items */
+.abtUsDropdown .dropdown-content a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 0; /* Start with no visible underline */
+    background-color: #000; /* Color of the underline */
+    transform-origin: top center; /* Set origin to top for fade-in effect */
+    transition: height 0.3s ease, opacity 0.3s ease; /* Smooth transition for height and opacity */
+    opacity: 0; /* Start with invisible underline */
+}
+
+/* Underline appears on hover for dropdown items */
+.abtUsDropdown .dropdown-content a:hover::after {
+    height: 2px; /* Height of the underline */
+    opacity: 1; /* Make the underline visible */
+}
