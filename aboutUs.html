@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aerovision</title>
+    <link rel="stylesheet" href="static/style.css">
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+        }
+
+        .main {
+            max-width: 1000px;
+            margin: 20px auto;
+            padding: 20px;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+
+
+        .team-section {
+            text-align: center;
+        }
+
+        .image-gallery {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+            margin-bottom: 20px;
+            align-items: center;
+        }
+
+        .member {
+            position: relative;
+        }
+
+        .member-img {
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+            transition: opacity 0.3s ease;
+            cursor: pointer;
+        }
+
+        .member-img:not(.active) {
+            opacity: 0.5;
+        }
+
+        .member-img.active {
+            opacity: 1;
+            border: 2px solid #000;
+        }
+
+        .description {
+            grid-column: 2 / span 1;
+            text-align: center;
+            font-size: 16px;
+        }
+
+        .description h2 {
+            margin-bottom: 10px;
+            color: #333;
+            font-size: 20px;
+        }
+
+        .navigation {
+            margin-top: 10px;
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .navigation button {
+            padding: 8px 16px;
+            border: none;
+            border-radius: 4px;
+            background-color: #333;
+            color: #fff;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .navigation button:hover {
+            background-color: #555;
+        }
+
+        .navigation button:disabled {
+            background-color: #ccc;
+            cursor: not-allowed;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="main">
+        <div class="header">
+            <nav>
+                <div class="logo">
+                    <a href="index.html"><img src="static/images/icon.png" alt="Logo"></a>
+                </div>
+                <div class="menu">
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="pricing.html">Pricing</a></li>
+                        <li class="abtUsDropdown">
+                            <a href="#" class="dropbtn">About Us ↓</a>
+                            <div class="dropdown-content">
+                                <a href="#mission">Mission</a>
+                                <a href="aboutUs.html">Our Team</a>
+                                <a href="contact.html">Contact</a>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+
+        <div class="team-section">
+            <div class="image-gallery">
+                <img src="static/images/nivaanKashaul.jpg" alt="Nivaan Kaushal" class="member-img" id="member2">
+                <img src="static/images/prathamSingh.jpg" alt="Pratham Singh" class="member-img" id="member3">
+                <img src="static/images/josephGeorge.jpg" alt="Joseph George" class="member-img" id="member4">
+                <img src="static/images/sanjeevSubramanian.jpg" alt="Sanjeev Subramanian" class="member-img" id="member1">
+                <div class="description" id="description">
+                    <h2 id="member-name">Description Title</h2>
+                    <p id="member-desc">Description text goes here.</p>
+                </div>
+                <img src="static/images/fabeunRahman.jpg" alt="Fabeun Rahman" class="member-img" id="member5">
+            </div>
+            <div class="navigation">
+                <button id="prev-btn">Previous</button>
+                <button id="next-btn">Next</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Member data in desired order
+        const members = [
+            {   
+                name: "Nivaan Kaushal",
+                desc: "Member 2 short description. This could be their role, expertise, or a fun fact about them.",
+                img: "static/images/nivaanKashaul.jpg",
+            },
+            {
+                name: "Pratham Singh",
+                desc: "Pratham Singh worked on the video for Aerovision as well as clearing out the business stuff.",
+                img: "static/images/prathamSingh.jpg",
+            },
+
+            {
+                name: "Joseph George",
+                desc: "Joseph George was a backend developer and worked on the LSTM.",
+                img: "static/images/josephGeorge.jpg",
+            },
+            {
+                name: "Sanjeev Subramanian",
+                desc: "Member 1 short description. This could be their role, expertise, or a fun fact about them.",
+                img: "static/images/sanjeevSubramanian.jpg",
+            },
+
+            {
+                name: "Fabeun Rahman",
+                desc: "Fabeun Rahman was the frontend developer of Aerovision and developed the website. He also focused on outreach and getting professional feedback from professors and others in the field.",
+                img: "static/images/fabeunRahman.jpg",
+            },
+        ];
+
+        let currentIndex = 0;
+
+        // DOM elements
+        const memberName = document.getElementById("member-name");
+        const memberDesc = document.getElementById("member-desc");
+        const memberImages = document.querySelectorAll(".member-img");
+        const prevBtn = document.getElementById("prev-btn");
+        const nextBtn = document.getElementById("next-btn");
+
+        // Update member display
+        function updateMember(index) {
+            // Update name and description
+            memberName.textContent = members[index].name;
+            memberDesc.textContent = members[index].desc;
+
+            // Highlight active image and dim others
+            memberImages.forEach((img, i) => {
+                if (i === index) {
+                    img.classList.add("active");
+                } else {
+                    img.classList.remove("active");
+                }
+            });
+        }
+
+        // Event listeners
+        prevBtn.addEventListener("click", () => {
+            currentIndex = (currentIndex - 1 + members.length) % members.length; // Loop backward
+            updateMember(currentIndex);
+        });
+
+        nextBtn.addEventListener("click", () => {
+            currentIndex = (currentIndex + 1) % members.length; // Loop forward
+            updateMember(currentIndex);
+        });
+
+        // Initialize first member
+        updateMember(currentIndex);
+    </script>
+</body>
+
+</html>
