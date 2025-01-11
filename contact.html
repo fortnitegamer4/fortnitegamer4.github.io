@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aerovision - Contact</title>
+    <link rel="stylesheet" href="static/style.css">
+    <style>
+
+
+        /* Contact Page Header */
+        .contact-header {
+            position: relative;
+            text-align: center;
+            margin: 50px 0 30px; /* Added top margin to create space from the navbar */
+        }
+
+        .contact-header img {
+            width: 100%;
+            height: auto;
+        }
+
+        .contact-header h1 {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: #fff;
+            font-size: 3rem;
+            font-weight: bold;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+        }
+
+        /* Contact Form Container */
+        .contact-form-container {
+            margin-top: 20px; /* Additional spacing for the form below the header */
+            width: 80%;
+            max-width: 800px;
+            margin: 0 auto 50px;
+            background: #fff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+
+        .contact-form-container h2 {
+            text-align: center;
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        .contact-form-container p {
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 1rem;
+            color: #666;
+        }
+
+        /* Form Styles */
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .form-row {
+            display: flex;
+            gap: 15px;
+        }
+
+        .form-row input, 
+        textarea, 
+        select {
+            flex: 1;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 1rem;
+        }
+
+        textarea {
+            resize: none;
+        }
+
+        .form-group label {
+            font-size: 0.9rem;
+            margin-bottom: 5px;
+            display: inline-block;
+            color: #333;
+        }
+
+        .form-group div {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        button {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            padding: 12px 20px;
+            font-size: 1rem;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        /* Contact Footer */
+        .contact-footer {
+            text-align: center;
+            margin-top: 30px;
+            padding: 20px 0;
+        }
+
+        .contact-footer p {
+            font-size: 1rem;
+            margin-bottom: 15px;
+            color: #555;
+        }
+
+        .contact-footer .consultation-link {
+            display: inline-block;
+            padding: 12px 20px;
+            font-size: 1rem;
+            color: #007bff;
+            border: 2px solid #007bff;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .contact-footer .consultation-link:hover {
+            background-color: #007bff;
+            color: #fff;
+        }
+
+    </style>
+</head>
+
+<body>
+    <div class="main">
+        <!-- Header Section -->
+        <div class="header">
+            <nav>
+                <div class="logo">
+                    <a href="index.html"><img src="static/images/icon.png" alt="Logo"></a>
+                </div>
+                <div class="menu">
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="pricing.html">Pricing</a></li>
+                        <li class="abtUsDropdown">
+                            <a href="#" class="dropbtn">About Us ↓</a>
+                            <div class="dropdown-content">
+                                <a href="index.html#mission">Mission</a>
+                                <a href="aboutUs.html">Our Team</a>
+                                <a href="contact.html">Contact</a>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+
+        <!-- Contact Page Content -->
+        <div class="contact-header">
+            <img src="static/images/banner.jpg" alt="Contact Banner">
+            <h1>CONTACT</h1>
+        </div>
+
+        <div class="contact-form-container">
+            <h2>Looking to subscribe to our product?</h2>
+            <p>Fill out the form below.</p>
+            <form action="#" method="post">
+                <div class="form-row">
+                    <input type="text" name="first_name" placeholder="First Name" required>
+                    <input type="text" name="last_name" placeholder="Last Name" required>
+                </div>
+                <div class="form-row">
+                    <input type="email" name="email" placeholder="Email" required>
+                    <input type="tel" name="phone" placeholder="Phone">
+                </div>
+                <div class="form-row">
+                    <input type="text" name="location" placeholder="Where are you located?">
+                    <input type="text" name="company" placeholder="Company">
+                </div>
+                <div class="form-group">
+                    <label>I'm looking for:</label>
+                    <div>
+                        <label><input type="checkbox" name="services[]" value="logo_design"> Base Subscription</label>
+                        <label><input type="checkbox" name="services[]" value="web_design"> Premium Subscription</label>
+                        <label><input type="checkbox" name="services[]" value="marketing_material"> Manufacturer Partnerships</label>
+                        <label><input type="checkbox" name="services[]" value="marketing_material"> Learn More & Invest</label>
+
+                    </div>
+
+                <div class="form-group">
+                    <textarea name="details" rows="5" placeholder="Please add any additional information about your inquiry"></textarea>
+                </div>
+                <div class="form-group">
+                    <label><input type="checkbox" name="not_a_robot"> I am not a robot</label>
+                </div>
+                <div class="form-row">
+                    <button type="submit">Yes, I want to subscribe!</button>
+                </div>
+            </form>
+        </div>
+
+        <div class="contact-footer">
+            <p>Are you ready to change the world?</p>
+            <!-- <a href="#" class="consultation-link">Book a free 15-min consultation call</a> -->
+        </div>
+    </div>
+</body>
+
+</html>
